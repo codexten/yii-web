@@ -11,7 +11,7 @@
 $widget = $this->context;
 ?>
 
-<?php $this->beginContent('@entero/web/widgets/views/page/default.php'); ?>
+<?php $this->beginContent('@codexten/yii/web/widgets/views/page/default.php'); ?>
 
 <?php
     echo $widget->renderContent('content');

@@ -37,7 +37,7 @@ return array_filter([
             'translations' => [
                 'entero:web' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
-                    'basePath' => '@entero/web/messages',
+                    'basePath' => '@codexten/yii/web/messages',
                 ],
             ],
         ],
@@ -46,7 +46,7 @@ return array_filter([
             'theme' => [
                 'pathMap' => [
                     '@app/views' => [
-                        '@entero/web/views',
+                        '@codexten/yii/web/views',
                     ],
                 ],
             ],

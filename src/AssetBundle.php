@@ -4,7 +4,7 @@ namespace codexten\yii\web;
 
 class AssetBundle extends \yii\web\AssetBundle
 {
-    public $sourcePath = '@entero/web/assets';
+    public $sourcePath = '@codexten/yii/web/assets';
     public $js = [
         'js/enyii.js',
         'js/jquery.are-you-sure.js',

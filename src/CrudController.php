@@ -8,13 +8,11 @@
 
 namespace codexten\yii\web;
 
-use codexten\yii\web\actions\Action;
 use codexten\yii\web\actions\CreateAction;
 use codexten\yii\web\actions\DeleteAction;
 use codexten\yii\web\actions\IndexAction;
 use codexten\yii\web\actions\UpdateAction;
 use codexten\yii\web\actions\ViewAction;
-use codexten\yii\web\components\Controller;
 
 class CrudController extends Controller
 {

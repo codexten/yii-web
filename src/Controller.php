@@ -6,7 +6,7 @@
  * Time: 9:19 PM
  */
 
-namespace codexten\yii\web\components;
+namespace codexten\yii\web;
 
 use InvalidArgumentException;
 use Yii;

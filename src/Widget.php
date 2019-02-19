@@ -162,7 +162,7 @@ class Widget extends \yii\base\Widget
      */
     public function getViewPath()
     {
-        return '@entero/web/widgets/views';
+        return '@codexten/yii/web/widgets/views';
     }
 
     /**
