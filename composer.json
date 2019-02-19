@@ -1,0 +1,31 @@
+{
+  "name": "codexten/yii-web",
+  "description": "extented yii web components for codexten packages",
+  "keywords": [
+    "yii2",
+    "codexten"
+  ],
+  "type": "library",
+  "require": {
+    "codexten/yii-core": "2.0.*",
+    "hiqdev/yii2-menus": "*",
+    "rkr/wildcards": "1.0.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "codexten\\yii\\web\\": "src"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "2.0.x-dev"
+    },
+    "sconfig-plugin": {
+      "params": "src/config/params.php",
+      "web": [
+        "$core",
+        "src/config/web.php"
+      ]
+    }
+  }
+}
