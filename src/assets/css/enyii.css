@@ -1,0 +1,18 @@
+.upload-kit .upload-kit-input, .upload-kit .upload-kit-item {
+    height: inherit;
+    min-height: 120px;
+    max-height: 140px;
+}
+
+.upload-kit .upload-kit-item.image > img {
+    min-height: 120px;
+    max-height: 140px;
+}
+.cropper-widget img{
+    width: auto !important;
+    height: 100px !important;
+}
+
+.upload-kit .upload-kit-input .drag, .upload-kit .upload-kit-input .add {
+    top: 58%;
+}
