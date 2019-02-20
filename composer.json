@@ -7,7 +7,7 @@
   ],
   "type": "library",
   "require": {
-    "codexten/yii-core": "2.0.*",
+    "codexten/yii-core": "~2.0",
     "hiqdev/yii2-menus": "*",
     "rkr/wildcards": "1.0.3"
   },
