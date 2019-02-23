@@ -19,7 +19,7 @@ use yii\web\AssetBundle;
 /**
  * Class ThemeManager
  *
- * @package eii\thememanager
+ * @package codexten\yii\web
  * @author Jomon Johnson <jomon@entero.in>
  */
 class ThemeManager extends Component implements BootstrapInterface
