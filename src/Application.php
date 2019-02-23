@@ -9,7 +9,7 @@
 namespace codexten\yii\web;
 
 
-use entero\base\ModuleTrait;
+use codexten\yii\base\ModuleTrait;
 
 /**
  * Class Application
