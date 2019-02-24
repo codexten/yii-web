@@ -20,7 +20,6 @@ class Theme extends \yii\base\Theme
 
     public $bodyOptions = [];
 
-
     /**
      * @return self
      */
