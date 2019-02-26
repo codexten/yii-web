@@ -48,6 +48,9 @@ return array_filter([
                     '@app/views' => [
                         '@codexten/yii/web/views',
                     ],
+                    '@app/widgets/views' => [
+                        '@codexten/yii/web/widgets/views',
+                    ],
                 ],
             ],
         ],
