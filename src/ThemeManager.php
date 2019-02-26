@@ -75,13 +75,14 @@ class ThemeManager extends Component implements BootstrapInterface
         $config = ArrayHelper::merge($defaultConfig, $config);
         $pathMap = $this->getView()->theme->pathMap;
         $pathMap = $this->reversePathMap($pathMap);
-        $config['pathMap'] = ArrayHelper::merge($config['pathMap'], $pathMap);
+//        $config['pathMap'] = ArrayHelper::merge($config['pathMap'], $pathMap);
+        $config['pathMap'] = ArrayHelper::merge($config['pathMap'],$pathMap);
         $this->_theme = \Yii::createObject($config);
 
 //        echo '<pre>';
-//        var_dump(Yii::getAlias('@app/views/layouts'));
-//        var_dump(Yii::getAlias('@codexten/yii/bootswatch/views/layouts'));
-//        var_dump($pathMap);
+////        var_dump(Yii::getAlias('@app/views/layouts'));
+////        var_dump(Yii::getAlias('@codexten/yii/bootswatch/views/layouts'));
+//        var_dump($config['pathMap']);
 //        echo '</pre>';
 //        exit;
 
