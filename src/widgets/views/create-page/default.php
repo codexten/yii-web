@@ -5,10 +5,12 @@
  * Date: 10/19/18
  * Time: 9:51 AM
  */
+/* @var $widget \codexten\yii\web\widgets\IndexPage */
+
 $widget = $this->context;
 ?>
-<?php $this->beginContent('@entero/metronic/widgets/views/page/blank.php'); ?>
+<?php $this->beginContent('@app/widgets/views/page/default.php'); ?>
 
-<code><?= Yii::$app->themeManager->defaultTheme ?></code> Create page Widget not configured
+<?= $widget->renderContent('form') ?>
 
 <?php $this->endContent() ?>
