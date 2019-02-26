@@ -11,6 +11,8 @@ namespace codexten\yii\web\widgets;
 use codexten\yii\web\Widget;
 use Yii;
 use BadMethodCallException;
+use yii\helpers\ArrayHelper;
+use yii\helpers\Html;
 
 class Page extends Widget
 {
@@ -30,4 +32,15 @@ class Page extends Widget
      * @var array
      */
     public $actions = [];
+
+    public $defaultButtonOptions = [
+        'class' => ['btn'],
+    ];
+
+    public function renderButton($text, $url, $options = [])
+    {
+        $options = ArrayHelper::merge($this->defaultButtonOptions, $options);
+
+        return Html::a($text, $url, $options);
+    }
 }

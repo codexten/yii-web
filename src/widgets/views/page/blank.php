@@ -9,7 +9,7 @@
 $widget = $this->context;
 
 /* @var $this \yii\web\View */
-/* @var $widget \entero\metronic\widgets\Page */
+/* @var $widget \codexten\yii\web\widgets\Page */
 /* @var $content string */
 ?>
 <?= $content ?>
