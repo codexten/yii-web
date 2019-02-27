@@ -1,9 +1,6 @@
 <?php
 
 return array_filter([
-    'aliases' => [
-        '@site' => '/site',
-    ],
     'bootstrap' => array_filter([
         'debug' => empty($params['debug.enabled']) ? null : 'debug',
         'themeManager' => 'themeManager',
