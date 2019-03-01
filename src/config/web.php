@@ -13,6 +13,9 @@ return array_filter([
         ],
     ],
     'components' => [
+        'assetManager' => [
+            'linkAssets' => true,
+        ],
         'request' => [
             'enableCsrfCookie' => true, /// XXX TO BE DISABLED
             'cookieValidationKey' => $params['cookieValidationKey'],
