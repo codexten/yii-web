@@ -54,9 +54,6 @@ return array_filter([
                 ],
             ],
         ],
-        'assetManager' => [
-            'linkAssets' => true,
-        ],
         'user' => [
             'class' => \codexten\yii\web\User::class,
             'identityClass' => \entero\module\user\models\User::class,
