@@ -42,7 +42,7 @@ class UpdateAction extends ModelAction
             if ($model->save()) {
                 $this->setFlash($this->getSuccessMessage(), ['model' => $model]);
 
-                return $this->redirect($this->createReturnUrl('view', $model));
+                return $this->redirect($this->createReturnUrl('index', $model));
             }
         }
 

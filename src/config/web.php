@@ -1,9 +1,6 @@
 <?php
 
 return array_filter([
-    'aliases' => [
-        '@site' => '/site',
-    ],
     'bootstrap' => array_filter([
         'debug' => empty($params['debug.enabled']) ? null : 'debug',
         'themeManager' => 'themeManager',
@@ -16,6 +13,9 @@ return array_filter([
         ],
     ],
     'components' => [
+        'assetManager' => [
+            'linkAssets' => true,
+        ],
         'request' => [
             'enableCsrfCookie' => true, /// XXX TO BE DISABLED
             'cookieValidationKey' => $params['cookieValidationKey'],
@@ -48,11 +48,11 @@ return array_filter([
                     '@app/views' => [
                         '@codexten/yii/web/views',
                     ],
+                    '@app/widgets/views' => [
+                        '@codexten/yii/web/widgets/views',
+                    ],
                 ],
             ],
-        ],
-        'assetManager' => [
-            'linkAssets' => true,
         ],
         'user' => [
             'class' => \codexten\yii\web\User::class,

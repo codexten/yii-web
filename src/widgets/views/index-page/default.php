@@ -11,12 +11,8 @@
 $widget = $this->context;
 ?>
 
-<?php $this->beginContent('@codexten/yii/web/widgets/views/page/default.php'); ?>
+<?php $this->beginContent('@app/widgets/views/page/default.php'); ?>
 
-<?php
-    echo $widget->renderContent('content');
-?>
-
-<code><?= Yii::$app->themeManager->defaultTheme ?></code> index page Widget not configured
+<?= $widget->renderContent('table') ?>
 
 <?php $this->endContent() ?>

@@ -39,9 +39,9 @@ class CrudController extends Controller
             'create' => [
                 'class' => CreateAction::class,
             ],
-            'view' => [
-                'class' => ViewAction::class,
-            ],
+//            'view' => [
+//                'class' => ViewAction::class,
+//            ],
             'update' => [
                 'class' => UpdateAction::class,
             ],

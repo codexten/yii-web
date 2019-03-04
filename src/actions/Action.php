@@ -87,7 +87,7 @@ class Action extends \yii\rest\Action
         }
 
         if ($this->view === null) {
-            $this->view= $this->id;
+            $this->view = $this->id;
         }
 
         parent::init();
@@ -241,15 +241,7 @@ class Action extends \yii\rest\Action
 
     public function setFlash($message, $params = [])
     {
-        Yii::$app->getSession()->setFlash('success', [
-            'type' => 'success',
-            'duration' => 12000,
-            'icon' => 'fa fa-users',
-            'message' => $message,
-//            'title' => Yii::t('app', Html::encode('My Title')),
-            'positonY' => 'top',
-            'positonX' => 'left',
-        ]);
+        Yii::$app->getSession()->setFlash('success', $message);
     }
 
     /**
