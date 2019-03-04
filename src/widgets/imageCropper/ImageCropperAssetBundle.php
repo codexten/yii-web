@@ -10,7 +10,7 @@ namespace codexten\yii\web\widgets\imageCropper;
 /**
  * Class AssetBundle
  * @package codexten\yii\web\widgets\imageCropper
- * @author Jomon Johnson <jomon@entero.in>
+ * @author Jomon Johnson <jomonjohnson.dev@gmail.com>
  */
 class ImageCropperAssetBundle extends \enyii\web\AssetBundle
 {

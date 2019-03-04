@@ -15,7 +15,7 @@ use codexten\yii\base\ModuleTrait;
  * Class Application
  *
  * @package codexten\yii\web
- * @author Jomon Johnson <jomon@entero.in>
+ * @author Jomon Johnson <jomonjohnson.dev@gmail.com>
  */
 class Application extends \yii\web\Application
 {

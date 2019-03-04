@@ -16,7 +16,7 @@ use yii\helpers\Html;
  * Class DynaGrid
  * @package codexten\yii\web\widgets\dynagrid
  * @author Junaid Rahman <junaid.entero@gmail.com>
- * @author Jomon Johnson <jomon@entero.in>
+ * @author Jomon Johnson <jomonjohnson.dev@gmail.com>
  */
 class DynaGrid extends \kartik\dynagrid\DynaGrid
 {

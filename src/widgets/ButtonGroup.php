@@ -7,8 +7,8 @@
 
 namespace codexten\yii\web\widgets;
 
-use entero\helpers\ArrayHelper;
-use entero\helpers\Html;
+use codexten\yii\helpers\ArrayHelper;
+use codexten\yii\helpers\Html;
 use Yii;
 use yii\bootstrap\Nav;
 
@@ -16,7 +16,7 @@ use yii\bootstrap\Nav;
  * Class PageToolBar
  *
  * @package eii\metronic\widgets
- * @author Jomon Johnson <jomon@entero.in>
+ * @author Jomon Johnson <jomonjohnson.dev@gmail.com>
  */
 class ButtonGroup extends Nav
 {

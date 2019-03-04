@@ -3,7 +3,7 @@
  * @link https://entero.co.in/
  * @copyright Copyright (c) 2012 Entero Software Solutions Pvt.Ltd
  * @license https://entero.co.in/license/
- * @author Jomon Johnson <jomon@entero.in>
+ * @author Jomon Johnson <jomonjohnson.dev@gmail.com>
  */
 
 use enyii\helpers\Html;
