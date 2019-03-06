@@ -7,8 +7,8 @@
 
 namespace codexten\yii\web\widgets;
 
-use entero\helpers\ArrayHelper;
-use entero\helpers\Html;
+use codexten\yii\helpers\ArrayHelper;
+use codexten\yii\helpers\Html;
 use Yii;
 use yii\bootstrap\Nav;
 

@@ -7,7 +7,7 @@
 
 namespace codexten\yii\web\widgets\log;
 
-use entero\helpers\Html;
+use codexten\yii\helpers\Html;
 use entero\metronic4\widgets\Widget;
 use entero\process\Process;
 use yii\base\InvalidConfigException;
