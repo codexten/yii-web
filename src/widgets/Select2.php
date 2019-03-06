@@ -13,7 +13,7 @@ use yii\helpers\Url;
  * Class Select
  * @package codexten\yii\web\widgets\select
  * @author Junaid Rahman <junaid.entero@gmail.com>
- * @author Jomon Johnson <jomon@entero.in>
+ * @author Jomon Johnson <jomonjohnson.dev@gmail.com>
  */
 class Select2 extends \kartik\select2\Select2
 {

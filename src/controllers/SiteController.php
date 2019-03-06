@@ -5,7 +5,7 @@ namespace codexten\yii\web\controllers;
 /**
  * Site controller
  *
- * @author Jomon Johnson <jomon@entero.in>
+ * @author Jomon Johnson <jomonjohnson.dev@gmail.com>
  */
 class SiteController extends \yii\web\Controller
 {

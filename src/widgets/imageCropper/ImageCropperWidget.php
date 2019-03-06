@@ -17,7 +17,7 @@ use enyii\helpers\Json;
  * @property string $imageId
  *
  * @package codexten\yii\web\widgets\imageCropper
- * @author Jomon Johnson <jomon@entero.in>
+ * @author Jomon Johnson <jomonjohnson.dev@gmail.com>
  */
 class ImageCropperWidget extends InputWidget
 {

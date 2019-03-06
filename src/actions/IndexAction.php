@@ -11,6 +11,8 @@ namespace codexten\yii\web\actions;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\data\DataFilter;
+use yii\base\InvalidConfigException;
+use yii\base\Model;
 
 class IndexAction extends Action
 {
@@ -61,10 +63,43 @@ class IndexAction extends Action
      * @since 2.0.13
      */
     public $dataFilter;
+    /**
+     * @var callable a PHP callable that will be called to create the new search model.
+     * If not set, [[newSearchModel()]] will be used instead.
+     * The signature of the callable should be:
+     *
+     * ```php
+     * function ($action) {
+     *     // $action is the action object currently running
+     * }
+     * ```
+     *
+     * The callable should return the new model instance.
+     */
+    public $newSearchModel;
 
     /**
-     * @return ActiveDataProvider
-     * @throws \yii\base\InvalidConfigException
+     * Creates new search model instance.
+     *
+     * @return mixed|null
+     */
+    public function newSearchModel()
+    {
+        if ($this->newSearchModel !== null) {
+
+            return call_user_func($this->newSearchModel, $this);
+        }
+        if ($this->controller->hasMethod('newSearchModel')) {
+
+            return call_user_func([$this->controller, 'newSearchModel'], $this);
+        }
+
+        return null;
+    }
+
+    /**
+     * @return string
+     * @throws InvalidConfigException
      */
     public function run()
     {
@@ -72,16 +107,25 @@ class IndexAction extends Action
             call_user_func($this->checkAccess, $this->id);
         }
 
-        return $this->controller->render($this->id, ['dataProvider' => $this->prepareDataProvider()]);
+        $searchModel = $this->newSearchModel();
+        $dataProvider = $this->prepareDataProvider($searchModel);
+
+
+        return $this->controller->render($this->id, [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
     }
 
     /**
      * Prepares the data provider that should return the requested collection of the models.
      *
-     * @return ActiveDataProvider
-     * @throws \yii\base\InvalidConfigException
+     * @param $searchModel
+     *
+     * @return mixed|object|ActiveDataProvider|DataFilter|null
+     * @throws InvalidConfigException
      */
-    protected function prepareDataProvider()
+    protected function prepareDataProvider($searchModel)
     {
         $requestParams = Yii::$app->getRequest()->getBodyParams();
         if (empty($requestParams)) {
@@ -98,10 +142,13 @@ class IndexAction extends Action
                 }
             }
         }
-
         if ($this->prepareDataProvider !== null) {
             return call_user_func($this->prepareDataProvider, $this, $filter);
         }
+        if ($searchModel !== null) {
+            return $searchModel->search(Yii::$app->request->queryParams);
+        }
+
 
         /* @var $modelClass \yii\db\BaseActiveRecord */
         $modelClass = $this->modelClass;

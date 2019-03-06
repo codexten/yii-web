@@ -16,7 +16,7 @@ use yii\bootstrap\Nav;
  * Class PageToolBar
  *
  * @package eii\metronic\widgets
- * @author Jomon Johnson <jomon@entero.in>
+ * @author Jomon Johnson <jomonjohnson.dev@gmail.com>
  */
 class ButtonGroup extends Nav
 {

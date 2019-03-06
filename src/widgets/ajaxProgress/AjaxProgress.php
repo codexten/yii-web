@@ -16,7 +16,7 @@ use yii\helpers\Json;
  * Class AjaxProgress
  * @package codexten\yii\web\widgets\ajaxProgress
  * @author Junaid Rahman PV <junaid@entero.in>
- * @author Jomon Johnson <jomon@entero.in>
+ * @author Jomon Johnson <jomonjohnson.dev@gmail.com>
  */
 class AjaxProgress extends Progress
 {

@@ -16,7 +16,7 @@ use yii\web\JsExpression;
  *
  * @package codexten\yii\web\widgets
  * @author Sreenath Sahadevan <sreenath@entero.in>
- * @author Jomon Johnson <jomon@entero.in>
+ * @author Jomon Johnson <jomonjohnson.dev@gmail.com>
  */
 class FileUploadWidget extends Upload
 {
