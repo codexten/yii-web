@@ -11,6 +11,7 @@ namespace codexten\yii\web;
 
 class User extends \yii\web\User
 {
-//    public $logoutUrl = ['/user/account/logout'];
+    public $logoutUrl = ['/site/logout'];
+    public $registerUrl = ['/site/register'];
 
 }
