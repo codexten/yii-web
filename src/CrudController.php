@@ -35,18 +35,22 @@ class CrudController extends Controller
         return [
             'index' => [
                 'class' => IndexAction::class,
+                'modelClass' => $this->modelClass,
             ],
             'create' => [
                 'class' => CreateAction::class,
+                'modelClass' => $this->modelClass,
             ],
 //            'view' => [
 //                'class' => ViewAction::class,
 //            ],
             'update' => [
                 'class' => UpdateAction::class,
+                'modelClass' => $this->modelClass,
             ],
             'delete' => [
                 'class' => DeleteAction::class,
+                'modelClass' => $this->modelClass,
             ],
         ];
     }
