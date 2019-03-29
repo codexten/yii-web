@@ -13,6 +13,7 @@ use codexten\yii\web\actions\DeleteAction;
 use codexten\yii\web\actions\IndexAction;
 use codexten\yii\web\actions\UpdateAction;
 use codexten\yii\web\actions\ViewAction;
+use yii\web\NotFoundHttpException;
 
 class CrudController extends Controller
 {
@@ -53,5 +54,16 @@ class CrudController extends Controller
                 'modelClass' => $this->modelClass,
             ],
         ];
+    }
+
+    public function findOne($id)
+    {
+        $modelClass = $this->modelClass;
+
+        if (($model = $modelClass::findOne($id)) !== null) {
+            return $model;
+        }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 }
