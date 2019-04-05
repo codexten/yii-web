@@ -18,7 +18,7 @@ use enyii\web\View;
  */
 class AjaxProgressAsset extends AssetBundle
 {
-    public $sourcePath = '@entero/entero-web/src/widgets/ajaxProgress/assets';
+    public $sourcePath = '@codexten/yii/web/widgets/ajaxProgress/assets';
     public $js = [
         'js/ajax-progress.js',
     ];

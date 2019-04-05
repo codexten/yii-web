@@ -8,7 +8,7 @@
 namespace codexten\yii\web\widgets\log;
 
 use codexten\yii\helpers\Html;
-use entero\metronic4\widgets\Widget;
+use codexten\yii\metronic4\widgets\Widget;
 use entero\process\Process;
 use yii\base\InvalidConfigException;
 use yii\helpers\Json;
