@@ -124,7 +124,7 @@ class ButtonGroup extends Nav
                 $url = ArrayHelper::getValue($item, 1);
             }
             if (empty($options)) {
-                $url = ArrayHelper::getValue($item, 2, []);
+                $options = ArrayHelper::getValue($item, 2, []);
             }
 
 
