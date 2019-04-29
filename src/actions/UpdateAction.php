@@ -8,7 +8,10 @@
 
 namespace codexten\yii\web\actions;
 
+use codexten\yii\helpers\ArrayHelper;
 use Yii;
+use yii\helpers\Inflector;
+use yii\helpers\StringHelper;
 use yii\web\Response;
 
 class UpdateAction extends ModelAction
@@ -19,6 +22,20 @@ class UpdateAction extends ModelAction
      * @var string name of the view, which should be rendered
      */
     public $view = 'update';
+
+    /**
+     * @inheritDoc
+     */
+    public function init()
+    {
+        if (!ArrayHelper::getValue($this->messages, 'success')) {
+            $this->messages['success'] = function () {
+                return Yii::t('codexten:yii:web', '{modelClass} updated successfully',
+                    ['modelClass' => Inflector::singularize(Inflector::camel2words(StringHelper::basename($this->modelClass)))]);
+            };
+        }
+        parent::init();
+    }
 
     /**
      * Updates existing record specified by id.

@@ -8,9 +8,12 @@
 
 namespace codexten\yii\web\actions;
 
+use codexten\yii\helpers\ArrayHelper;
 use Yii;
 use yii\base\Model;
 use yii\db\ActiveRecordInterface;
+use yii\helpers\Inflector;
+use yii\helpers\StringHelper;
 use yii\web\Response;
 
 class CreateAction extends Action
@@ -50,6 +53,20 @@ class CreateAction extends Action
      * ```
      */
     public $loadDefaultValues = false;
+
+    /**
+     * @inheritDoc
+     */
+    public function init()
+    {
+        if (!ArrayHelper::getValue($this->messages, 'success')) {
+            $this->messages['success'] = function () {
+                return Yii::t('codexten:yii:web', '{modelClass} created successfully',
+                    ['modelClass' => Inflector::singularize(Inflector::camel2words(StringHelper::basename($this->modelClass)))]);
+            };
+        }
+        parent::init();
+    }
 
     /**
      * Creates new model instance.

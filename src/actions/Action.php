@@ -73,9 +73,7 @@ class Action extends \yii\rest\Action
      */
     public $returnUrl;
 
-    public $messages = [
-        'success' => 'Success',
-    ];
+    public $messages = [];
 
     /**
      * {@inheritdoc}
@@ -236,7 +234,18 @@ class Action extends \yii\rest\Action
 
     protected function getSuccessMessage()
     {
-        return $this->messages['success'];
+        return $this->getMessage('success');
+    }
+
+    protected function getMessage($key)
+    {
+        $message = $this->messages[$key];
+
+        if (is_callable($message)) {
+            return call_user_func($message);
+        }
+
+        return $message;
     }
 
     public function setFlash($message, $params = [])
