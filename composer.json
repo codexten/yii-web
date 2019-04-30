@@ -9,7 +9,8 @@
   "require": {
     "codexten/yii-core": "~2.0",
     "hiqdev/yii2-menus": "*",
-    "rkr/wildcards": "1.0.3"
+    "rkr/wildcards": "1.0.3",
+    "kartik-v/yii2-grid": "@dev"
   },
   "autoload": {
     "psr-4": {

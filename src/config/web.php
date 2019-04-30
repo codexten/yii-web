@@ -65,6 +65,16 @@ return array_filter([
             'class' => \codexten\yii\web\ThemeManager::class,
         ],
     ],
+    'modules' => [
+        'gridview' => [
+            'class' => '\kartik\grid\Module'
+            // enter optional module parameters below - only if you need to
+            // use your own export download action or custom translation
+            // message source
+            // 'downloadAction' => 'gridview/export/download',
+            // 'i18n' => []
+        ],
+    ],
     'container' => [
         'definitions' => [
             \yii\web\UrlManager::class => [
@@ -72,6 +82,9 @@ return array_filter([
             ],
             \yii\web\User::class => [
                 'class' => \codexten\yii\web\User::class,
+            ],
+            \yii\grid\GridView::class => [
+                'class' => \codexten\yii\web\widgets\grid\GridView::class,
             ],
         ],
     ],
