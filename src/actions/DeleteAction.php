@@ -52,6 +52,8 @@ class DeleteAction extends Action
             throw new ServerErrorHttpException('Failed to delete the object for unknown reason.');
         }
 
+        $this->setFlash($this->getSuccessMessage(), ['model' => $model]);
+
         return $this->controller->redirect(Yii::$app->request->referrer);
     }
 
