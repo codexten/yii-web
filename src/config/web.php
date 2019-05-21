@@ -1,5 +1,13 @@
 <?php
 
+use codexten\yii\web\controllers\SiteController;
+use codexten\yii\web\ThemeManager;
+use codexten\yii\web\UrlManager;
+use codexten\yii\web\User;
+use codexten\yii\web\widgets\grid\GridView;
+use yii\i18n\I18N;
+use yii\i18n\PhpMessageSource;
+
 return array_filter([
     'bootstrap' => array_filter([
         'debug' => empty($params['debug.enabled']) ? null : 'debug',
@@ -9,7 +17,7 @@ return array_filter([
     'controllerNamespace' => 'codexten\yii\web\controllers',
     'controllerMap' => [
         'site' => [
-            'class' => \codexten\yii\web\controllers\SiteController::class,
+            'class' => SiteController::class,
         ],
     ],
     'components' => [
@@ -33,10 +41,10 @@ return array_filter([
             ],
         ],
         'i18n' => [
-            'class' => \yii\i18n\I18N::class,
+            'class' => I18N::class,
             'translations' => [
                 'entero:web' => [
-                    'class' => \yii\i18n\PhpMessageSource::class,
+                    'class' => PhpMessageSource::class,
                     'basePath' => '@codexten/yii/web/messages',
                 ],
             ],
@@ -58,11 +66,11 @@ return array_filter([
             ],
         ],
         'user' => [
-            'class' => \codexten\yii\web\User::class,
+            'class' => User::class,
             'identityClass' => \entero\module\user\models\User::class,
         ],
         'themeManager' => [
-            'class' => \codexten\yii\web\ThemeManager::class,
+            'class' => ThemeManager::class,
         ],
     ],
     'modules' => [
@@ -78,13 +86,13 @@ return array_filter([
     'container' => [
         'definitions' => [
             \yii\web\UrlManager::class => [
-                'class' => \codexten\yii\web\UrlManager::class,
+                'class' => UrlManager::class,
             ],
             \yii\web\User::class => [
-                'class' => \codexten\yii\web\User::class,
+                'class' => User::class,
             ],
             \yii\grid\GridView::class => [
-                'class' => \codexten\yii\web\widgets\grid\GridView::class,
+                'class' => GridView::class,
             ],
         ],
     ],

@@ -6,12 +6,14 @@
  * @author Ashlin A <ashlin@entero.in>
  */
 
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
+use yii\web\View;
 
-/* @var $this \yii\web\View */
+/* @var $this View */
 /* @var $content string */
 
-$bodyOptions = \yii\helpers\ArrayHelper::getValue($this->params, ['body', 'options'], []);
+$bodyOptions = ArrayHelper::getValue($this->params, ['body', 'options'], []);
 ?>
 <?php $this->beginPage(); ?>
 
