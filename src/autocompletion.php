@@ -6,9 +6,12 @@
  * Time: 11:59 AM
  */
 
+use codexten\yii\web\ThemeManager;
+use codexten\yii\web\User;
+
 /**
- * @property \codexten\yii\web\User $user
- * @property \codexten\yii\web\ThemeManager $themeManager
+ * @property User $user
+ * @property ThemeManager $themeManager
  */
 abstract class BaseApplication extends yii\base\Application
 {

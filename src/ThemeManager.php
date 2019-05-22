@@ -13,14 +13,19 @@ use Yii;
 use yii\base\Application;
 use yii\base\BootstrapInterface;
 use yii\base\Component;
+use yii\base\InvalidConfigException;
 use yii\helpers\ArrayHelper;
 use yii\web\AssetBundle;
+use yii\web\View;
 
 /**
  * Class ThemeManager
  *
  * @package codexten\yii\web
  * @author Jomon Johnson <jomonjohnson.dev@gmail.com>
+ *
+ * @property View $view
+ * @property Theme $theme
  */
 class ThemeManager extends Component implements BootstrapInterface
 {
@@ -45,7 +50,7 @@ class ThemeManager extends Component implements BootstrapInterface
     protected $_view;
 
     /**
-     * @return \yii\web\View
+     * @return View
      * @see setView
      */
     public function getView()
@@ -59,25 +64,23 @@ class ThemeManager extends Component implements BootstrapInterface
 
     /**
      * @param Application $app
-     *
-     * @throws \yii\base\InvalidConfigException
      */
     public function bootstrap($app)
     {
-        $this->setTheme();
+        $this->setTheme($this->defaultTheme);
     }
 
-    protected function setTheme()
+    public function setTheme($theme)
     {
-        $config = $this->themes[$this->defaultTheme];
+        $config = $this->themes[$theme];
         $defaultConfig = ArrayHelper::toArray($this->getView()->theme);
         unset($defaultConfig['pathMap']);
         $config = ArrayHelper::merge($defaultConfig, $config);
         $pathMap = $this->getView()->theme->pathMap;
         $pathMap = $this->reversePathMap($pathMap);
 //        $config['pathMap'] = ArrayHelper::merge($config['pathMap'], $pathMap);
-        $config['pathMap'] = ArrayHelper::merge($config['pathMap'],$pathMap);
-        $this->_theme = \Yii::createObject($config);
+        $config['pathMap'] = ArrayHelper::merge($config['pathMap'], $pathMap);
+        $this->_theme = Yii::createObject($config);
 
 //        echo '<pre>';
 ////        var_dump(Yii::getAlias('@app/views/layouts'));
