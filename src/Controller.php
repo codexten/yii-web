@@ -11,6 +11,10 @@ namespace codexten\yii\web;
 use InvalidArgumentException;
 use Yii;
 
+/**
+ *
+ * @property string $basePath
+ */
 class Controller extends \yii\web\Controller
 {
     /**
