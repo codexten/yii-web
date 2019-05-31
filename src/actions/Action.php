@@ -15,6 +15,7 @@ use yii\db\ActiveRecordInterface;
 use yii\helpers\Inflector;
 use yii\helpers\StringHelper;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
 /**
  * Class Action
@@ -27,6 +28,8 @@ class Action extends \yii\rest\Action
      * @var string name of the view, which should be rendered
      */
     public $view;
+
+    public $layout;
 
     /**
      * @var CrudController
@@ -261,6 +264,8 @@ class Action extends \yii\rest\Action
      */
     public function render($view, $params = [])
     {
+        $this->controller->layout = $this->layout;
+
         return $this->controller->render($view, $params);
     }
 
@@ -276,7 +281,7 @@ class Action extends \yii\rest\Action
      * @param $url
      * @param null $statusCode
      *
-     * @return \yii\web\Response
+     * @return Response
      */
     public function redirect($url, $statusCode = null)
     {

@@ -9,6 +9,8 @@
 namespace codexten\yii\web;
 
 use InvalidArgumentException;
+use ReflectionClass;
+use ReflectionException;
 use Yii;
 
 /**
@@ -27,12 +29,12 @@ class Controller extends \yii\web\Controller
      * It defaults to the directory containing the module class file.
      *
      * @return string
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     public function getBasePath()
     {
         if ($this->_basePath === null) {
-            $class = new \ReflectionClass($this);
+            $class = new ReflectionClass($this);
             $this->_basePath = Yii::getAlias('@' . str_replace('\\', '/', $class->getNamespaceName()));
         }
 
