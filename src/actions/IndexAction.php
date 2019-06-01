@@ -142,6 +142,7 @@ class IndexAction extends Action
                 }
             }
         }
+
         if ($this->prepareDataProvider !== null) {
             return call_user_func($this->prepareDataProvider, $this, $filter);
         }
