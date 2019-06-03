@@ -24,10 +24,7 @@ use yii\web\Response;
  */
 class Action extends \yii\rest\Action
 {
-    /**
-     * @var string name of the view, which should be rendered
-     */
-    public $view;
+    use ActionTrait;
 
     public $layout;
 
@@ -77,6 +74,7 @@ class Action extends \yii\rest\Action
     public $returnUrl;
 
     public $messages = [];
+
 
     /**
      * {@inheritdoc}
@@ -254,19 +252,6 @@ class Action extends \yii\rest\Action
     public function setFlash($message, $params = [])
     {
         Yii::$app->getSession()->setFlash('success', $message);
-    }
-
-    /**
-     * @param $view
-     * @param array $params
-     *
-     * @return string
-     */
-    public function render($view, $params = [])
-    {
-        $this->controller->layout = $this->layout;
-
-        return $this->controller->render($view, $params);
     }
 
 //    /**
