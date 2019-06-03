@@ -37,10 +37,6 @@ trait ActionTrait
                 unset($params[$key]);
             }
         }
-        echo '<pre>';
-        var_dump($params);
-        echo '</pre>';
-        exit;
         $this->_viewParams = ArrayHelper::merge($this->_viewParams, $params);
     }
 }
