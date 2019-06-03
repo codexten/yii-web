@@ -37,6 +37,7 @@ trait ActionTrait
                 unset($params[$key]);
             }
         }
+
         $this->_viewParams = ArrayHelper::merge($this->_viewParams, $params);
     }
 }
