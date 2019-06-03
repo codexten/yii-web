@@ -13,6 +13,7 @@ use yii\data\ActiveDataProvider;
 use yii\data\DataFilter;
 use yii\base\InvalidConfigException;
 use yii\base\Model;
+use yii\db\BaseActiveRecord;
 
 class IndexAction extends Action
 {
@@ -77,6 +78,16 @@ class IndexAction extends Action
      * The callable should return the new model instance.
      */
     public $newSearchModel;
+
+    /**
+     * @var callable
+     * ```php
+     * function ($query) {
+     *  // $query
+     * }
+     * ```
+     */
+    public $queryModifier;
 
     /**
      * Creates new search model instance.
@@ -151,10 +162,15 @@ class IndexAction extends Action
         }
 
 
-        /* @var $modelClass \yii\db\BaseActiveRecord */
+        /* @var $modelClass BaseActiveRecord */
         $modelClass = $this->modelClass;
 
         $query = $modelClass::find();
+
+        if ($this->queryModifier !== null) {
+            call_user_func($this->queryModifier, $query);
+        }
+
         if (!empty($filter)) {
             $query->andWhere($filter);
         }
