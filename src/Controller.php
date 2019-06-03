@@ -60,7 +60,9 @@ class Controller extends \yii\web\Controller
         }
     }
 
-
+    /**
+     * {@inheritDoc}
+     */
     public function getViewPath()
     {
         $viewFolder = str_replace('controllers', 'views', $this->getBasePath()) . DIRECTORY_SEPARATOR . $this->id;
