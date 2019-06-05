@@ -9,10 +9,9 @@
 namespace codexten\yii\web\actions;
 
 use Yii;
+use yii\base\InvalidConfigException;
 use yii\data\ActiveDataProvider;
 use yii\data\DataFilter;
-use yii\base\InvalidConfigException;
-use yii\base\Model;
 use yii\db\BaseActiveRecord;
 
 class IndexAction extends Action
@@ -176,7 +175,7 @@ class IndexAction extends Action
         }
 
         return Yii::createObject([
-            'class' => ActiveDataProvider::className(),
+            'class' => ActiveDataProvider::class,
             'query' => $query,
             'pagination' => [
                 'params' => $requestParams,
