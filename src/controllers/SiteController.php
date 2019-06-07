@@ -2,12 +2,14 @@
 
 namespace codexten\yii\web\controllers;
 
+use yii\web\Controller;
+
 /**
  * Site controller
  *
  * @author Jomon Johnson <jomonjohnson.dev@gmail.com>
  */
-class SiteController extends \yii\web\Controller
+class SiteController extends Controller
 {
     /**
      * @inheritdoc
