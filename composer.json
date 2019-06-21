@@ -10,7 +10,8 @@
     "codexten/yii-core": "~2.0",
     "hiqdev/yii2-menus": "*",
     "rkr/wildcards": "1.0.3",
-    "kartik-v/yii2-grid": "@dev"
+    "kartik-v/yii2-grid": "@dev",
+    "odaialali/yii2-toastr": "*"
   },
   "autoload": {
     "psr-4": {
