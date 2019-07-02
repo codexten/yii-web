@@ -19,6 +19,13 @@ class CrudController extends Controller
 {
     public $modelClass;
 
+    public $enabledActions = [
+        'index',
+        'create',
+        'update',
+        'delete',
+    ];
+
 //    public function behaviors()
 //    {
 //        return [
@@ -31,29 +38,49 @@ class CrudController extends Controller
 //        ];
 //    }
 
+    /**
+     * {@inheritDoc}
+     */
     public function actions()
     {
-        return [
-            'index' => [
+        $actions = [];
+
+        if (isset($this->enabledActions['index'])) {
+            $actions['index'] = [
                 'class' => IndexAction::class,
                 'modelClass' => $this->modelClass,
-            ],
-            'create' => [
+            ];
+        }
+
+        if (isset($this->enabledActions['create'])) {
+            $actions['create'] = [
                 'class' => CreateAction::class,
                 'modelClass' => $this->modelClass,
-            ],
-//            'view' => [
-//                'class' => ViewAction::class,
-//            ],
-            'update' => [
+            ];
+        }
+
+        if (isset($this->enabledActions['update'])) {
+            $actions['update'] = [
                 'class' => UpdateAction::class,
                 'modelClass' => $this->modelClass,
-            ],
-            'delete' => [
+            ];
+        }
+
+        if (isset($this->enabledActions['delete'])) {
+            $actions['delete'] = [
                 'class' => DeleteAction::class,
                 'modelClass' => $this->modelClass,
-            ],
-        ];
+            ];
+        }
+
+        if (isset($this->enabledActions['view'])) {
+            $actions['delete'] = [
+                'class' => ViewAction::class,
+                'modelClass' => $this->modelClass,
+            ];
+        }
+
+        return $actions;
     }
 
     public function findOne($id)
