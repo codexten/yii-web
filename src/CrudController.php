@@ -13,6 +13,7 @@ use codexten\yii\web\actions\DeleteAction;
 use codexten\yii\web\actions\IndexAction;
 use codexten\yii\web\actions\UpdateAction;
 use codexten\yii\web\actions\ViewAction;
+use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
 
 class CrudController extends Controller
@@ -31,7 +32,7 @@ class CrudController extends Controller
 
     public function init()
     {
-        \Yii::$app->view->theme->pathMap[$this->viewPath] = $this->getPathMaps();
+        \Yii::$app->view->theme->pathMap[$this->viewPath] = ArrayHelper::merge([$this->viewPath], $this->getPathMaps());
 
         parent::init();
     }
