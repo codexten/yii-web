@@ -9,6 +9,9 @@
 namespace codexten\yii\web;
 
 
+use Yii;
+use yii\helpers\FileHelper;
+
 /**
  * Class Theme
  *
@@ -26,5 +29,35 @@ class Theme extends \yii\base\Theme
     public static function getComponent()
     {
         return app()->view->theme;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function applyTo($path)
+    {
+        $return = parent::applyTo($path);
+        if (is_file($return)) {
+            return $return;
+        }
+
+        // for debug
+        $path = FileHelper::normalizePath($path);
+        $debug['path'] = $path;
+
+        $pathMap = $this->pathMap;
+        $items = [];
+        foreach ($pathMap as $key => $paths) {
+            $key = Yii::getAlias($key);
+            foreach ($paths as $path) {
+                $items[$key][] = Yii::getAlias($path);
+            }
+        }
+
+        $debug['pathMap'] = $items;
+        echo '<pre>';
+        var_dump($debug);
+        echo '</pre>';
+        exit;
     }
 }

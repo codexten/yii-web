@@ -18,6 +18,7 @@ use yii\web\NotFoundHttpException;
 class CrudController extends Controller
 {
     public $modelClass;
+    public $newSearchModel;
 
     public $enabledActions = [
         'index',
@@ -25,6 +26,22 @@ class CrudController extends Controller
         'update',
         'delete',
     ];
+
+    public $pathMaps = [];
+
+    public function init()
+    {
+        \Yii::$app->view->theme->pathMap[$this->viewPath] = $this->getPathMaps();
+
+        parent::init();
+    }
+
+    public function getPathMaps()
+    {
+        return [
+            '@codexten/yii/web/views/crud',
+        ];
+    }
 
 //    public function behaviors()
 //    {
@@ -45,35 +62,36 @@ class CrudController extends Controller
     {
         $actions = [];
 
-        if (isset($this->enabledActions['index'])) {
+        if (in_array('index', $this->enabledActions)) {
             $actions['index'] = [
                 'class' => IndexAction::class,
                 'modelClass' => $this->modelClass,
+                'newSearchModel' => $this->newSearchModel,
             ];
         }
 
-        if (isset($this->enabledActions['create'])) {
+        if (in_array('create', $this->enabledActions)) {
             $actions['create'] = [
                 'class' => CreateAction::class,
                 'modelClass' => $this->modelClass,
             ];
         }
 
-        if (isset($this->enabledActions['update'])) {
+        if (in_array('update', $this->enabledActions)) {
             $actions['update'] = [
                 'class' => UpdateAction::class,
                 'modelClass' => $this->modelClass,
             ];
         }
 
-        if (isset($this->enabledActions['delete'])) {
+        if (in_array('delete', $this->enabledActions)) {
             $actions['delete'] = [
                 'class' => DeleteAction::class,
                 'modelClass' => $this->modelClass,
             ];
         }
 
-        if (isset($this->enabledActions['view'])) {
+        if (in_array('view', $this->enabledActions)) {
             $actions['delete'] = [
                 'class' => ViewAction::class,
                 'modelClass' => $this->modelClass,
