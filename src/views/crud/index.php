@@ -1,13 +1,14 @@
 <?php
 
 use codexten\yii\web\widgets\IndexPage;
+use yii\helpers\Inflector;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $searchModel */
 /* @var $_params_ array */
 
-$this->title = Yii::t('gnt:core', 'Staff Users');
+$this->title = Inflector::pluralize(Inflector::camel2words(Inflector::id2camel(Yii::$app->controller->id)))
 ?>
 
 <?php $page = IndexPage::begin([
@@ -22,7 +23,7 @@ $this->title = Yii::t('gnt:core', 'Staff Users');
 
 <?php $page->beginContent('table') ?>
 
-<?= $this->render('_grid', $_params_) ?>
+<?= $this->render('index/_grid', $_params_) ?>
 
 <?php $page->endContent() ?>
 
