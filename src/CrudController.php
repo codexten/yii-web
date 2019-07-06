@@ -93,7 +93,7 @@ class CrudController extends Controller
         }
 
         if (in_array('view', $this->enabledActions)) {
-            $actions['delete'] = [
+            $actions['view'] = [
                 'class' => ViewAction::class,
                 'modelClass' => $this->modelClass,
             ];
