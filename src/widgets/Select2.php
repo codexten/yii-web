@@ -7,44 +7,14 @@
 
 namespace codexten\yii\web\widgets;
 
-use yii\helpers\Url;
-
 /**
- * Class Select
- * @package codexten\yii\web\widgets\select
- * @author Junaid Rahman <junaid.entero@gmail.com>
- * @author Jomon Johnson <jomonjohnson.dev@gmail.com>
+ * Class Select2
+ *
+ * @package codexten\yii\web\widgets
+ *
+ * @deprecated since 2.0.0
  */
-class Select2 extends \kartik\select2\Select2
+class Select2 extends \codexten\yii\widgets\Select2
 {
-    public $placeholder = '';
-    public $initValue = '';
-    public $url = false;
-    public $data = null;
 
-    /**
-     * @inheritdoc
-     */
-    public function init()
-    {
-        $this->normalize();
-        parent::init();
-    }
-
-    /**
-     * Normalizing configuration
-     */
-    public function normalize()
-    {
-        if ($this->placeholder) {
-            $this->options['placeholder'] = $this->placeholder;
-        }
-        if ($this->initValue) {
-            $this->initValueText = $this->initValue;
-        }
-
-        if ($this->url) {
-            $this->pluginOptions['ajax']['url'] = Url::to($this->url);
-        }
-    }
 }
