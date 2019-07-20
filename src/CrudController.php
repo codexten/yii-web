@@ -30,13 +30,6 @@ class CrudController extends Controller
 
     public $pathMaps = [];
 
-    public function init()
-    {
-        \Yii::$app->view->theme->pathMap[$this->viewPath] = ArrayHelper::merge([$this->viewPath], $this->getPathMaps());
-
-        parent::init();
-    }
-
     public function getPathMaps()
     {
         return [

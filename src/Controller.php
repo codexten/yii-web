@@ -12,6 +12,7 @@ use InvalidArgumentException;
 use ReflectionClass;
 use ReflectionException;
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  *
@@ -23,6 +24,18 @@ class Controller extends \yii\web\Controller
      * @var string the root directory of the module.
      */
     private $_basePath;
+
+    public function init()
+    {
+        \Yii::$app->view->theme->pathMap[$this->viewPath] = ArrayHelper::merge([$this->viewPath], $this->getPathMaps());
+
+        parent::init();
+    }
+
+    public function getPathMaps()
+    {
+        return [];
+    }
 
     /**
      * Returns the root directory of the module.

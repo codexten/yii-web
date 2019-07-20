@@ -15,18 +15,6 @@ $this->title = $model->id;
 
 <?php $page->beginContent('content') ?>
 
-<?= DetailView::widget([
-    'model' => $model,
-    'attributes' => [
-        'username',
-        'email',
-        'password_hash',
-        'auth_key',
-        'access_token',
-        'logged_at',
-    ],
-]) ?>
-
 <?php $page->endContent() ?>
 
 <?php $page->end() ?>
