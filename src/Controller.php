@@ -28,6 +28,12 @@ class Controller extends \yii\web\Controller
     public function init()
     {
         \Yii::$app->view->theme->pathMap[$this->viewPath] = ArrayHelper::merge([$this->viewPath], $this->getPathMaps());
+//        \Yii::$app->view->theme->pathMap = ArrayHelper::merge(
+//            [
+//                $this->viewPath => ArrayHelper::merge([$this->viewPath], $this->getPathMaps()),
+//            ],
+//            \Yii::$app->view->theme->pathMap
+//        );
 
         parent::init();
     }
