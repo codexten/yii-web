@@ -67,7 +67,7 @@ class Widget extends \yii\base\Widget
         foreach ($this->templates as $template) {
             $templates[$template] = $this->renderTemplate($template);
         }
-        $this->contents['templates'] = "\n" . implode("", $templates) . "\n" . $this->contents['templates'];
+        $this->contents['templates'] = "\n" . implode("", $templates) . "\n" .ArrayHelper::getValue( $this->contents,'templates','');
     }
 
     /**
