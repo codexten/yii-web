@@ -7,6 +7,7 @@ use codexten\yii\web\User;
 use codexten\yii\web\widgets\grid\GridView;
 use yii\i18n\I18N;
 use yii\i18n\PhpMessageSource;
+use yii\widgets\LinkPager;
 
 return array_filter([
     'bootstrap' => array_filter([
@@ -93,6 +94,11 @@ return array_filter([
             ],
             \yii\grid\GridView::class => [
                 'class' => GridView::class,
+            ],
+            LinkPager::class => [
+                'class' => LinkPager::class,
+                'firstPageLabel' => '<<',
+                'lastPageLabel' => '>>',
             ],
         ],
     ],
