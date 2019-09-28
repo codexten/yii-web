@@ -6,6 +6,11 @@ namespace codexten\yii\web\helpers;
 
 class UserHelper
 {
+    public static function isGuest()
+    {
+        return \Yii::$app->user->isGuest;
+    }
+
     public static function getMyId()
     {
         return \Yii::$app->user->getId();
