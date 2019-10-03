@@ -63,7 +63,7 @@ class ThemeManager extends Component implements BootstrapInterface
     }
 
     /**
-     * @param Application $app
+     * @param  Application  $app
      */
     public function bootstrap($app)
     {
@@ -79,7 +79,10 @@ class ThemeManager extends Component implements BootstrapInterface
         $pathMap = $this->getView()->theme->pathMap;
         $pathMap = $this->reversePathMap($pathMap);
 //        $config['pathMap'] = ArrayHelper::merge($config['pathMap'], $pathMap);
-        $config['pathMap'] = ArrayHelper::merge(ArrayHelper::getValue($config,'pathMap',[]), $pathMap);
+        $config['pathMap'] = ArrayHelper::merge(ArrayHelper::getValue($config, 'pathMap', []), $pathMap);
+        if (!isset($config['class'])) {
+            $config['class'] = Theme::class;
+        }
         $this->_theme = Yii::createObject($config);
 
 //        echo '<pre>';
