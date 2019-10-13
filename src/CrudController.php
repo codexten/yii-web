@@ -20,6 +20,7 @@ class CrudController extends Controller
 {
     public $modelClass;
     public $newSearchModel;
+    public $actionConfig = [];
 
     public $enabledActions = [
         'index',
@@ -29,6 +30,18 @@ class CrudController extends Controller
     ];
 
     public $pathMaps = [];
+
+    public function init()
+    {
+        $this->actionConfig = ArrayHelper::merge([
+            'index' => [
+                'params' => [
+                    'widgetType' => IndexAction::WIDGET_TYPE_GRID,
+                ],
+            ],
+        ], $this->actionConfig);
+        parent::init();
+    }
 
     public function getPathMaps()
     {
@@ -90,6 +103,12 @@ class CrudController extends Controller
                 'class' => ViewAction::class,
                 'modelClass' => $this->modelClass,
             ];
+        }
+
+        foreach ($actions as $key => $action) {
+            if (isset($this->actionConfig[$key])) {
+                $actions[$key] = ArrayHelper::merge($action, $this->actionConfig[$key]);
+            }
         }
 
         return $actions;
