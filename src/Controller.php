@@ -27,7 +27,22 @@ class Controller extends \yii\web\Controller
 
     public function init()
     {
-        \Yii::$app->view->theme->pathMap[$this->viewPath] = ArrayHelper::merge([$this->viewPath], $this->getPathMaps());
+
+        $paths = \Yii::$app->view->theme->pathMap["@app/views"];
+
+        foreach ($paths as $key => $path) {
+            $paths[$key] = $path.'/'.$this->id;
+        }
+
+
+        \Yii::$app->view->theme->pathMap[$this->viewPath] = ArrayHelper::merge(
+            $paths,
+            [
+                $this->viewPath,
+            ],
+            $this->getPathMaps()
+        );
+
 //        \Yii::$app->view->theme->pathMap = ArrayHelper::merge(
 //            [
 //                $this->viewPath => ArrayHelper::merge([$this->viewPath], $this->getPathMaps()),
@@ -54,7 +69,7 @@ class Controller extends \yii\web\Controller
     {
         if ($this->_basePath === null) {
             $class = new ReflectionClass($this);
-            $this->_basePath = Yii::getAlias('@' . str_replace('\\', '/', $class->getNamespaceName()));
+            $this->_basePath = Yii::getAlias('@'.str_replace('\\', '/', $class->getNamespaceName()));
         }
 
         return $this->_basePath;
@@ -64,7 +79,7 @@ class Controller extends \yii\web\Controller
      * Sets the root directory of the module.
      * This method can only be invoked at the beginning of the constructor.
      *
-     * @param string $path the root directory of the module. This can be either a directory name or a [path alias](guide:concept-aliases).
+     * @param  string  $path  the root directory of the module. This can be either a directory name or a [path alias](guide:concept-aliases).
      *
      * @throws InvalidArgumentException if the directory does not exist.
      */
@@ -84,7 +99,7 @@ class Controller extends \yii\web\Controller
      */
     public function getViewPath()
     {
-        $viewFolder = str_replace('controllers', 'views', $this->getBasePath()) . DIRECTORY_SEPARATOR . $this->id;
+        $viewFolder = str_replace('controllers', 'views', $this->getBasePath()).DIRECTORY_SEPARATOR.$this->id;
 
         if (file_exists($viewFolder)) {
             return $viewFolder;
