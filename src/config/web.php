@@ -53,7 +53,7 @@ return array_filter([
         ],
         'view' => [
             'class' => '\codexten\yii\web\components\View',
-            'enableMinify' => true,
+            'enableMinify' => $params['html.minify'],
             'concatCss' => true, // concatenate css
             'minifyCss' => true, // minificate css
             'concatJs' => true, // concatenate js

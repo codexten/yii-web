@@ -6,4 +6,6 @@ return [
     'cookieValidationKey' => @$_ENV['COOKIE_VALIDATION_KEY'],
 
     'favicon' => '/favicon.ico',
+
+    'html.minify' => false,
 ];
