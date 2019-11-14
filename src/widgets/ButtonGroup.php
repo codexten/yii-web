@@ -10,6 +10,7 @@ namespace codexten\yii\web\widgets;
 use codexten\yii\helpers\ArrayHelper;
 use codexten\yii\helpers\Html;
 use Yii;
+use yii\base\Widget;
 use yii\bootstrap\Nav;
 
 /**
@@ -134,9 +135,9 @@ class ButtonGroup extends Nav
 
             if ($icon) {
                 if ($this->iconPosition == self::ICON_POSITION_LEFT) {
-                    $_item['label'] = $icon . ' ' . $label;
+                    $_item['label'] = $icon.' '.$label;
                 } elseif ($this->iconPosition == self::ICON_POSITION_RIGHT) {
-                    $_item['label'] = $label . ' ' . $icon;
+                    $_item['label'] = $label.' '.$icon;
                 }
             }
 
@@ -152,7 +153,16 @@ class ButtonGroup extends Nav
                 if ($url) {
                     $options['data']['form'] = $form;
                 } else {
-                    $options['onClick'] = "$('#{$form}').submit()";
+                    $buttonId = "{$form}-submit-btn";
+                    $options['id'] = $buttonId;
+                    $options['onClick'] = "$('#{$form}').submit();$('#{$buttonId}').attr('disabled','disabled')";
+                    $js = <<<JS
+$('#{$form}').change(function() {
+    $('#{$buttonId}').removeAttr('disabled');
+});
+JS;
+                    $this->view->registerJs($js);
+
                 }
             }
 
