@@ -155,10 +155,10 @@ class ButtonGroup extends Nav
                 } else {
                     $buttonId = "{$form}-submit-btn";
                     $options['id'] = $buttonId;
-                    $options['onClick'] = "$('#{$form}').submit();$('#{$buttonId}').attr('disabled','disabled')";
+                    $options['onClick'] = "$('#{$form}').submit();$('#{$buttonId}').attr('disabled','disabled').unbind('click')";
                     $js = <<<JS
 $('#{$form}').change(function() {
-    $('#{$buttonId}').removeAttr('disabled');
+    $('#{$buttonId}').removeAttr('disabled').bind('click');
 });
 JS;
                     $this->view->registerJs($js);
