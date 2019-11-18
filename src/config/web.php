@@ -82,7 +82,7 @@ return array_filter([
         ],
         'user' => [
             'class' => User::class,
-            'identityClass' => \entero\module\user\models\User::class,
+            'identityClass' => \codexten\yii\modules\auth\models\User::class,
         ],
         'themeManager' => [
             'class' => ThemeManager::class,
