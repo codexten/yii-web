@@ -109,6 +109,7 @@ class CrudController extends Controller
             if (isset($this->actionConfig[$key])) {
                 $actions[$key] = ArrayHelper::merge($action, $this->actionConfig[$key]);
             }
+            $actions[$key]['layout'] = $this->layout;
         }
 
         return $actions;
